@@ -14,7 +14,14 @@ class Course extends Model
         'title',
         'slug',
         'description',
+        'short_description',
         'price',
+        'duration_days',
+        'level',
+        'rating',
+        'is_featured',
+        'outcomes',
+        'syllabus',
         'is_active',
     ];
 
@@ -22,7 +29,10 @@ class Course extends Model
     {
         return [
             'is_active' => 'boolean',
+            'is_featured' => 'boolean',
             'price' => 'decimal:2',
+            'outcomes' => 'array',
+            'syllabus' => 'array',
         ];
     }
 
@@ -43,8 +53,7 @@ class Course extends Model
 
     /**
      * Only courses that are active AND belong to an active category
-     * are shown on the public catalog — mirrors the "dynamic course
-     * and category filtering" requirement from the platform this is based on.
+     * are shown on the public catalog.
      */
     public function scopeVisibleToPublic($query)
     {

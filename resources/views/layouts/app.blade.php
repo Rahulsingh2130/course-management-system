@@ -16,6 +16,9 @@
                 <a href="/admin/courses" class="hover:text-indigo-600">Courses</a>
                 <a href="/admin/workshops" class="hover:text-indigo-600">Workshops</a>
                 <a href="/admin/enrollments" class="hover:text-indigo-600">Enrollments</a>
+                <a href="/admin/enquiries" class="hover:text-indigo-600">Enquiries</a>
+                <a href="/admin/blog" class="hover:text-indigo-600">Blog</a>
+                <a href="/" class="text-slate-500 hover:text-indigo-600">View site ↗</a>
             </div>
         </div>
     </nav>

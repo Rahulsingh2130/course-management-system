@@ -58,21 +58,38 @@ routes/
 
 ## 🚀 Setup
 
+Requirements: PHP 8.2+, Composer, Node.js/npm, and a running MySQL server.
+
 ```bash
 git clone <your-repo-url>
 cd course-management-system
 composer install
+
+# Windows PowerShell:
+Copy-Item .env.example .env
+# macOS/Linux:
 cp .env.example .env
+
 php artisan key:generate
 
-# configure your MySQL credentials in .env, then:
+# Create the database configured in .env and configure its credentials, then:
 php artisan migrate --seed
-npm install && npm run dev
+npm install
+npm run dev
 
+# In a separate terminal:
 php artisan serve
 ```
 
-Visit `http://localhost:8000` for the public catalog and `http://localhost:8000/admin` for the Livewire admin dashboard.
+Visit `http://localhost:8000` for the public catalog. The `/admin` routes are protected, but this project does not yet include login routes.
+
+In Windows PowerShell, use `npm.cmd install` and `npm.cmd run dev` if the `npm` command is blocked by the script execution policy.
+
+### Run with Laragon
+
+Set `APP_URL` in `.env` to `http://course-management-system.test`. Laragon's Apache virtual host must use `C:/laragon/www/course-management-system/public` for both `DocumentRoot` and its `<Directory>` path; serving the project root shows a directory listing instead of the Laravel app. After changing the virtual host, restart Apache from Laragon's menu, then open `http://course-management-system.test`.
+
+Run `npm.cmd run dev` from the project folder while developing the frontend. Keep Laragon's Apache and MySQL services running; you do not need `php artisan serve` when using the `.test` address.
 
 ## 🧠 Why this project
 
